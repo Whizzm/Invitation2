@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Wedding Invitation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to right, #4e342e, #795548);
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            color: #f5f5f5;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #clickMessage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 28px;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px 25px;
+            border-radius: 15px;
+            color: #5d4037;
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        #rsvpButton {
+            display: none;
+            position: absolute;
+            bottom: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #8d6e63;
+            padding: 20px 40px;
+            font-size: 26px;
+            font-weight: bold;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        #rsvpButton:hover {
+            background: #6d4c41;
+            box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container" id="videoContainer">
+        <div id="clickMessage">CLICK HERE</div>
+        <video id="weddingVideo" muted playsinline preload="none">
+            <source src="wedding-invite.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <a href="rsvp.html" id="rsvpButton">RSVP NOW</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.getElementById("weddingVideo");
+            var rsvpButton = document.getElementById("rsvpButton");
+            var videoContainer = document.getElementById("videoContainer");
+            var clickMessage = document.getElementById("clickMessage");
+
+            videoContainer.addEventListener("click", function() {
+                if (video.paused) {
+                    video.load();
+                    video.play();
+                    video.style.opacity = 1;
+                    clickMessage.style.display = "none";
+                }
+            });
+
+            video.onended = function() {
+                rsvpButton.style.display = "block";
+            };
+        });
+    </script>
+</body>
+</html>
