@@ -14,14 +14,14 @@
         body {
             background: linear-gradient(to right, #4e342e, #795548);
             text-align: center;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             color: #f5f5f5;
         }
 
         .video-container {
             position: relative;
             width: 100vw;
-            height: 100vh;
+            min-height: 100vh; height: auto;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -33,7 +33,7 @@
             height: 100%;
             object-fit: contain;
     background-color: black;
-            position: absolute;
+            position: relative;
             top: 0;
             left: 0;
             opacity: 0;
@@ -47,7 +47,7 @@
             transform: translate(-50%, -50%);
             font-size: 28px;
             font-weight: bold;
-            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
             background: rgba(255, 255, 255, 0.8);
             padding: 15px 25px;
             border-radius: 15px;
@@ -64,6 +64,7 @@
             background: #8d6e63;
             padding: 20px 40px;
             font-size: 26px;
+            text-transform: uppercase;
             font-weight: bold;
             text-decoration: none;
             font-family: 'Poppins', sans-serif;
